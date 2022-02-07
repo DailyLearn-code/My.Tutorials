@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+
+</head>
+<body>
+    
+<div class="clock">
+    <div class="hour">
+        <span class="hr" id="hr"></span>
+    </div>
+    <div class="minute">
+        <span class="min" id="min"></span>
+    </div>
+    <div class="second">
+        <span class="sec" id="sec"></span>
+    </div>
+</div>
+    <script>
+        const degree = 6;
+        const hr = document.querySelector('#hr');
+        const min = document.querySelector('#min');
+        const sec = document.querySelector('#sec');
+
+        setInterval(() => {
+            let date = new Date();
+            let hh = date.getHours() * 30;
+            let mm = date.getMinutes() * degree;
+            let ss = date.getSeconds() * degree;
+        
+        hr.style.transform = `rotateZ(${hh + (mm / 12)}deg)`;
+        min.style.transform = `rotateZ(${mm}deg)`;
+        sec.style.transform = `rotateZ(${ss}deg)`;
+
+        });
+
+    </script>
+
+</body>
+</html>
